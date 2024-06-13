@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - Barbearia XYZ</title>
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Barbearia XYZ</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Serviços</a></li>
+                <li><a href="booking.html">Agendamento</a></li>
+                <li><a href="profile.html">Perfil</a></li>
+                <li id="signin"><a href="signin.html">Entrar</a></li>
+                <li id="signup"><a href="signup.html">Cadastro</a></li>
+                <li id="user-info" style="display: none;"></li>
+                <li id="signout" style="display: none;"><a href="#" onclick="logout()">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="profile-info" id="logged-in-content" style="display: none;">
+            <h2>Seu Perfil</h2>
+            <div class="info">
+                <!-- As informações do perfil serão atualizadas aqui pelo script -->
+            </div>
+            <button class="btn" onclick="location.href='edit_profile.html'">Editar informações</button>
+            <div class="appointments">
+                <h3>Agendamentos Futuros</h3>
+                <ul id="future-appointments">
+                    <!-- Agendamentos futuros serão inseridos aqui pelo script -->
+                </ul>
+            </div>
+            <div class="appointments">
+                <h3>Histórico de Agendamentos</h3>
+                <ul id="past-appointments">
+                    <!-- Histórico de agendamentos será inserido aqui pelo script -->
+                </ul>
+            </div>
+            <div class="feedback">
+                <h3>Deixe seu feedback</h3>
+                <form>
+                    <textarea id="feedback" name="feedback" rows="4" cols="50"></textarea><br>
+                    <button type="submit" class="btn">Enviar Feedback</button>
+                </form>
+            </div>
+        </section>
+        <section class="upcoming-appointments" id="logged-out-content">
+            <p>Para ver seu perfil, por favor faça login ou cadastre-se.</p>
+            <button class="btn" onclick="location.href='signin.html'">Login</button>
+            <button class="btn" onclick="location.href='signup.html'">Cadastro</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Barbearia XYZ. Todos os direitos reservados.</p>
+        <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+        </ul>
+    </footer>
+    <script src="../js/profile_scripts.js"></script>
+    
+</body>
+</html>

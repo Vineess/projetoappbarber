@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administração - Barbearia XYZ</title>
+    <link rel="stylesheet" href="../css/admin_styles.css">
+</head>
+<body>
+    <header>
+        <h1>Painel Administrativo - Barbearia XYZ</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#barbers">Barbeiros</a></li>
+                <li><a href="#clients">Novos Agendamentos</a></li>
+                <li><a href="#appointments">Agendamentos</a></li>
+                <li><a href="#settings">Configurações</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="dashboard">
+            <h2>Visão Geral</h2>
+            <div class="card">
+                <h3>Total de Agendamentos</h3>
+                <p id="total-appointments">120</p>
+            </div>
+            <div class="card">
+                <h3>Total de Clientes</h3>
+                <p id="total-clients">45</p>
+            </div>
+            <div class="card">
+                <h3>Serviços Disponíveis</h3>
+                <p id="total-services">5</p>
+            </div>
+        </section>
+        <section id="services">
+            <h2>Gerenciamento de Serviços</h2>
+            <button id="add-service-btn">Adicionar Serviço</button>
+            <div id="service-form" style="display: none;">
+                <h3>Adicionar Serviço</h3>
+                <form id="service-form-element">
+                    <label for="service-name">Nome do Serviço:</label>
+                    <input type="text" id="service-name" name="service-name" required>
+                    <label for="service-description">Descrição:</label>
+                    <textarea id="service-description" name="service-description" required></textarea>
+                    <label for="service-price">Preço:</label>
+                    <input type="number" id="service-price" name="service-price" step="0.01" required>
+                    <button type="submit">Adicionar</button>
+                    <button type="button" id="cancel-service-btn">Cancelar</button>
+                </form>
+            </div>
+            <div id="service-list">
+                <h3>Serviços Existentes</h3>
+                <ul id="service-list-ul">
+                    <!-- Outros serviços -->
+                </ul>
+            </div>
+        </section>
+        <section id="barbers">
+            <h2>Gerenciamento de Barbeiros</h2>
+            <button id="add-barber-btn">Adicionar Barbeiro</button>
+            <div id="barber-form" style="display: none;">
+                <h3>Adicionar Barbeiro</h3>
+                <form id="barber-form-element">
+                    <label for="barber-name">Nome do Barbeiro:</label>
+                    <input type="text" id="barber-name" name="barber-name" required>
+                    <button type="submit">Adicionar</button>
+                    <button type="button" id="cancel-barber-btn">Cancelar</button>
+                </form>
+            </div>
+            <div id="barber-list">
+                <h3>Barbeiros Existentes</h3>
+                <ul id="barber-list-ul">
+                    <!-- Lista de barbeiros -->
+                </ul>
+            </div>
+        </section>
+        <section id="appointments">
+            <h2>Novos Agendamentos</h2>
+            <div id="appointment-list">
+                <h3>Agendamentos</h3>
+                <ul>
+                    <li>
+                        João da Silva - Corte de Cabelo - 01/06/2024 - 14:00
+                        <button class="accept-btn" onclick="aceptAppointment(this)">Aceitar</button>
+                        <button class="cancel-btn" onclick="cancelAppointment(this)">Cancelar</button>
+                    </li>
+                    <!-- Outros agendamentos -->
+                </ul>
+            </div>
+        </section>
+        <section id="clients">
+            <h2>Agendamentos</h2>
+            <div id="appointment-list">
+                <h3>Agendamentos</h3>
+                <ul>
+                    <li>
+                        João da Silva - Corte de Cabelo - 01/06/2024 - 14:00
+                        <button onclick="editAppointment(this)">Editar</button>
+                        <button onclick="deleteAppointment(this)">Cancelar</button>
+                    </li>
+                    <!-- Outros agendamentos -->
+                </ul>
+            </div>
+        </section>
+        <section id="settings">
+            <h2>Configurações</h2>
+            <form>
+                <label for="admin-name">Nome do Administrador:</label>
+                <input type="text" id="admin-name" name="admin-name" value="Administrador">
+                <label for="admin-email">Email:</label>
+                <input type="email" id="admin-email" name="admin-email" value="admin@barbeariaxyz.com">
+                <button type="submit">Salvar Alterações</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Barbearia XYZ. Todos os direitos reservados.</p>
+    </footer>
+    <script src="../js/admin_scripts.js"></script>
+</body>
+</html>

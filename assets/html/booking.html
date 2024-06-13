@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Barbearia XYZ</title>
+    <link rel="stylesheet" href="../css/booking.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Barbearia XYZ</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Serviços</a></li>
+                <li><a href="booking.html">Agendamento</a></li>
+                <li><a href="profile.html">Perfil</a></li>
+                <li id="signin"><a href="signin.html">Entrar</a></li>
+                <li id="signup"><a href="signup.html">Cadastro</a></li>
+                <li id="user-info" style="display: none;"></li>
+                <li id="signout" style="display: none;"><a href="#" onclick="logout()">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="booking-form">
+            <h2>Agende seu Horário</h2>
+            <form action="#" method="POST">
+                <div class="input-group">
+                    <label for="service">Serviço:</label>
+                    <select name="service" id="service" required>
+                        <option value="">Selecione o Serviço</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="barber">Barbeiro:</label>
+                    <select name="barber" id="barber" required>
+                        <option value="">Selecione o Barbeiro</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="date">Data:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="input-group">
+                    <label for="time">Hora:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                <div class="input-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="input-group">
+                    <label for="phone">Telefone:</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="input-group">
+                    <button type="submit">Agendar</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Barbearia XYZ. Todos os direitos reservados.</p>
+        <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+        </ul>
+    </footer>
+    <script src="../js/scripts.js"></script>
+    <script src="../js/profile_scripts.js"></script>
+</body>
+</html>

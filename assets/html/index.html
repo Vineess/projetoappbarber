@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbearia XYZ</title>
+    <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>Barbearia XYZ</h1>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Serviços</a></li>
+                <li><a href="booking.html">Agendamento</a></li>
+                <li><a href="profile.html">Perfil</a></li>
+                <li id="signin"><a href="signin.html">Entrar</a></li>
+                <li id="signup"><a href="signup.html">Cadastro</a></li>
+                <li id="user-info" style="display: none;"></li>
+                <li id="signout" style="display: none;"><a href="#" onclick="logout()">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Bem-vindo à Barbearia XYZ</h2>
+                <p>Onde estilo e tradição se encontram</p>
+                <button onclick="window.location.href='booking.html'">Agende seu horário</button>
+            </div>
+        </section>
+        <section class="about">
+            <h2>Sobre Nós</h2>
+            <p>Na Barbearia XYZ, oferecemos uma experiência única de cuidados masculinos, combinando técnicas tradicionais e modernas para proporcionar o melhor serviço aos nossos clientes. Nossa equipe é formada por profissionais qualificados e apaixonados pelo que fazem.</p>
+        </section>
+        <section class="testimonials">
+            <h2>Depoimentos</h2>
+            <div class="testimonial">
+                <p>"A melhor barbearia da cidade! Atendimento excelente e profissionais qualificados."</p>
+                <h4>- Carlos Pereira</h4>
+            </div>
+            <div class="testimonial">
+                <p>"Ambiente agradável e serviços de alta qualidade. Recomendo a todos!"</p>
+                <h4>- Roberto Silva</h4>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Barbearia XYZ. Todos os direitos reservados.</p>
+        <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+        </ul>
+    </footer>
+    <script src="../js/profile_scripts.js"></script>
+</body>
+</html>
