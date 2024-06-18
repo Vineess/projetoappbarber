@@ -31,12 +31,20 @@
                 <!-- As informações do perfil serão atualizadas aqui pelo script -->
             </div>
             <button class="btn" onclick="location.href='edit_profile.html'">Editar informações</button>
-            <div class="appointments">
-                <h3>Agendamentos Futuros</h3>
-                <ul id="future-appointments">
-                    <!-- Agendamentos futuros serão inseridos aqui pelo script -->
-                </ul>
-            </div>        
+            <!-- Botão para abrir o modal -->
+            <button class="btn" id="ver-agendamentos-btn">Ver Meus Agendamentos</button>
+            <!-- Modal para mostrar os agendamentos futuros -->
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <div class="appointments">
+                        <h3>Agendamentos Futuros</h3>
+                        <ul id="future-appointments-modal">
+                            <!-- Agendamentos futuros serão inseridos aqui pelo script -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
             <div class="feedback">
                 <h3>Deixe seu feedback</h3>
                 <form>
@@ -60,6 +68,5 @@
         </ul>
     </footer>
     <script src="../js/profile_scripts.js"></script>
-    
 </body>
 </html>

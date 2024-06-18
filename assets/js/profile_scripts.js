@@ -80,30 +80,52 @@ function loadFutureAppointments() {
         return response.json();
     })
     .then(data => {
-        const futureAppointmentsList = document.getElementById('future-appointments');
+        const futureAppointmentsList = document.getElementById('future-appointments-modal');
         if (!futureAppointmentsList) {
-            throw new Error('Elemento future-appointments não encontrado');
+            throw new Error('Elemento future-appointments-modal não encontrado');
         }
         futureAppointmentsList.innerHTML = '';
-
+    
         data.forEach(appointment => {
             const listItem = document.createElement('li');
             listItem.innerHTML = `
-                <span>Data:</span> ${new Date(appointment.data_agendamento).toLocaleDateString()}
-                <span>Horário:</span> ${appointment.horario_agendamento}
-                <span>Serviço:</span> ${appointment.nome_servico}
-                <span>Barbeiro:</span> ${appointment.barber}
+                <p><strong>Data:</strong> ${new Date(appointment.data_agendamento).toLocaleDateString()}</p>
+                <p><strong>Horário:</strong> ${appointment.horario_agendamento}</p>
+                <p><strong>Serviço:</strong> ${appointment.nome_servico}</p>
+                <p><strong>Barbeiro:</strong> ${appointment.barber}</p>
+                <p style="color: orange;"><strong>Aguardando aprovação</strong></p>
             `;
             futureAppointmentsList.appendChild(listItem);
         });
+    
+        // Mostra o modal após carregar os agendamentos
+        openModal();
     })
     .catch(error => console.error(error));
 }
 
+// Função para abrir o modal
+function openModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'block';
+}
+
+// Função para fechar o modal
+function closeModal() {
+    const modal = document.getElementById('modal');
+    modal.style.display = 'none';
+}
+
 // Verifica se estamos na página de perfil antes de carregar os agendamentos futuros
 document.addEventListener('DOMContentLoaded', function() {
+    const verAgendamentosBtn = document.getElementById('ver-agendamentos-btn');
+
+    if (verAgendamentosBtn) {
+        verAgendamentosBtn.addEventListener('click', loadFutureAppointments);
+    }
+
     if (document.getElementById('logged-in-content')) {
-        loadFutureAppointments();
+        //
     }
 });
 
