@@ -60,32 +60,44 @@ function logout() {
 
 // Função para carregar os agendamentos futuros do usuário
 function loadFutureAppointments() {
-    fetch('http://localhost:3000/future-appointments')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erro ao carregar agendamentos futuros');
-            }
-            return response.json();
-        })
-        .then(data => {
-            const futureAppointmentsList = document.getElementById('future-appointments');
-            if (!futureAppointmentsList) {
-                throw new Error('Elemento future-appointments não encontrado');
-            }
-            futureAppointmentsList.innerHTML = '';
+    const userEmail = localStorage.getItem('email');
 
-            data.forEach(appointment => {
-                const listItem = document.createElement('li');
-                listItem.innerHTML = `
-                    <span>Data:</span> ${appointment.date}
-                    <span>Horário:</span> ${appointment.time}
-                    <span>Serviço:</span> ${appointment.service}
-                    <span>Barbeiro:</span> ${appointment.barber}
-                `;
-                futureAppointmentsList.appendChild(listItem);
-            });
-        })
-        .catch(error => console.error(error));
+    if (!userEmail) {
+        console.error('Email do usuário não encontrado no LocalStorage');
+        return;
+    }
+
+    fetch(`http://localhost:3000/future-appointments`, {
+        headers: {
+            'Content-Type': 'application/json',
+            'user-email': userEmail
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao carregar agendamentos futuros');
+        }
+        return response.json();
+    })
+    .then(data => {
+        const futureAppointmentsList = document.getElementById('future-appointments');
+        if (!futureAppointmentsList) {
+            throw new Error('Elemento future-appointments não encontrado');
+        }
+        futureAppointmentsList.innerHTML = '';
+
+        data.forEach(appointment => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <span>Data:</span> ${new Date(appointment.data_agendamento).toLocaleDateString()}
+                <span>Horário:</span> ${appointment.horario_agendamento}
+                <span>Serviço:</span> ${appointment.nome_servico}
+                <span>Barbeiro:</span> ${appointment.barber}
+            `;
+            futureAppointmentsList.appendChild(listItem);
+        });
+    })
+    .catch(error => console.error(error));
 }
 
 // Verifica se estamos na página de perfil antes de carregar os agendamentos futuros
